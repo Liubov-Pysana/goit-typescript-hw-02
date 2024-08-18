@@ -25,7 +25,7 @@ export default function SearchBar({ onSubmit }: SearchBarProps) {
             toast.error("Minimum 3 letters");
         } else {
             onSubmit(trimmedQuery);
-            actions.resetForm();
+            // actions.resetForm();
         }
     };
 

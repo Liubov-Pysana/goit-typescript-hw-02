@@ -19,7 +19,7 @@ interface ImageData {
 
 export default function App() {
     const [topic, setTopic] = useState<string>("");
-    const [images, setImages] = useState<ImageData[]>([]);
+    const [images, setImages] = useState<ImageData[] | undefined>(undefined);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
     const [page, setPage] = useState<number>(1);
@@ -28,6 +28,9 @@ export default function App() {
     const [modalAltDescription, setModalAltDescription] = useState<string>("");
 
     const handleSearch = (newTopic: string) => {
+        if (newTopic === topic) { 
+            return;
+        }
         console.log("Searching for:", newTopic);
         setTopic(newTopic);
         setImages([]);
@@ -59,7 +62,7 @@ export default function App() {
                 setError("");
                 const data = await fetchImages(topic, page);
                 console.log("data:", data);
-                setImages((prevImages) => [...prevImages, ...data]);
+                setImages((prevImages) => [...(prevImages || []), ...data]);
             } catch (error) {
                 toast.error("Something went wrong, reload page", { position: "top-left" });
                 setError("An error occurred while fetching images.");
