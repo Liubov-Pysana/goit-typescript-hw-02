@@ -20,6 +20,7 @@ export default function ImageModal({ isOpen, closeModal, imageUrl, altDescriptio
                 contentLabel="Image Modal"
                 shouldCloseOnEsc={true}
                 shouldCloseOnOverlayClick={true}
+                ariaHideApp={false}
             >
                 <img src={imageUrl} alt={altDescription} className={styles.image} />
             </Modal>
