@@ -22,3 +22,4 @@ export default function ImageCard({ image, onImageClick }: ImageCardProps) {
         </div>
     );
 }
+

@@ -7,7 +7,8 @@ import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import SearchBar from "../SearchBar/SearchBar";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import { fetchImages } from "../unsplash";
+import { fetchImages } from '../unsplash'; 
+
 import toast from "react-hot-toast";
 
 interface ImageData {

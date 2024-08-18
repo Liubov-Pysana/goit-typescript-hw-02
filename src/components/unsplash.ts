@@ -6,11 +6,11 @@ const API_KEY = "Wc2fQQu_VfDgC39QNbmX0JouwDxAWt_sCt8wG7GXmZ4";
 // Define the types for the API response
 interface UnsplashApiResponse {
     results: {
-        id: string,
+        id: string;
         urls: {
-            small: string,
-        },
-        alt_description: string,
+            small: string;
+        };
+        alt_description: string;
     }[];
 }
 
@@ -23,20 +23,16 @@ interface ImageData {
 
 export const fetchImages = async (query: string, currentPage: number): Promise<ImageData[]> => {
     try {
-        const res =
-            (await axios.get) <
-            UnsplashApiResponse >
-            (`search/photos`,
-            {
-                params: {
-                    query: query,
-                    page: currentPage,
-                    per_page: 10,
-                },
-                headers: {
-                    Authorization: `Client-ID ${API_KEY}`,
-                },
-            });
+        const res = await axios.get<UnsplashApiResponse>('/search/photos', {
+            params: {
+                query: query,
+                page: currentPage,
+                per_page: 10,
+            },
+            headers: {
+                Authorization: `Client-ID ${API_KEY}`,
+            },
+        });
 
         console.log(res.data);
 

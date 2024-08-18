@@ -28,3 +28,13 @@ export default function ImageGallery({ images, onImageClick }: ImageGalleryProps
         </ul>
     );
 }
+
+// return (
+//     <ul className={styles.imageGallery}>
+//         {images.map((image, index) => (
+//             <li key={`${image.id}-${index}`}>
+//                 <ImageCard image={image} onImageClick={onImageClick} />
+//             </li>
+//         ))}
+//     </ul>
+// );
